@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 function Counts() {
     const [count, setcount] = useState(0)
-console.log(count)
+    const [alterter, setalterter] = useState(0)
+    console.log(count)
     function handleAdd() {
-console.log("count", count)
-        setcount(count => count = count+1)
+        console.log("count", count)
+        setcount(count => count = count + 1)
     }
 
     function handleSub() {
-        setcount(count => count =count-1)
+        setcount(count => count = count - 1)
     }
 
-  function   hanldeAlert() {
+    function hanldeAlert() {
         console.log('test')
         setTimeout(() => {
-            
-            alert(count)
+
+            setalterter(alterter => alterter = +1)
         }, 5000)
     }
+    useEffect(() => {
+
+        if (alterter > 0) {
+
+            alert(count)
+        }
+
+    }, [alterter])
+
 
     return (<section>
 
